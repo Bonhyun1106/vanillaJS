@@ -1,0 +1,59 @@
+<!-- 
+    1. client X, Y
+        사용자가 보고있는 브라우저 위치의 x, y
+
+    2. page X, Y
+        도큐먼트 상단(스크롤 최상단)부터의 x, y 위치
+
+    3. Element.getBoundingClientRect();
+        현재 브라우저에서 엘리먼트 까지의 위치값
+        top
+        left
+        bottom
+        right
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Window Coordinates</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /* 
+        body{
+            // scroll 막기
+            overflow: hidden;
+        } 
+        */
+        div {
+            background-color: beige;
+            width : 100px; height:100px;
+            margin : 10px;
+        }
+        .ele-click{
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div class="ele-click"></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        const ele = document.querySelector("div");
+        
+        document.addEventListener('click', (event)=>{
+            const rect = event.target.getBoundingClientRect();
+            console.log(rect);
+            console.log(`page : ${event.pageX}, ${event.pageY}`);
+            console.log(`client : ${event.clientX}, ${event.clientY}`);
+        });
+
+    </script>
+
+</body>
+</html>
